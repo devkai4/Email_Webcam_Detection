@@ -1,5 +1,8 @@
 import cv2
 import time
+from emailing import send_email
+
+from emailing import send_email
 
 video = cv2.VideoCapture(0)
 time.sleep(1)
@@ -28,7 +31,9 @@ while True:
         if cv2.contourArea(contour) < 5000:
             continue
         x, y, w, h = cv2.boundingRect(contour)
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 3)
+        rectangle = cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 3)
+        if rectangle.any():
+            send_email()
 
     cv2.imshow("Video", frame)
     key = cv2.waitKey(1)
