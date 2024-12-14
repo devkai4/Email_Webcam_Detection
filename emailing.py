@@ -1,2 +1,2 @@
 def send_email():
-    print("Email ")
+    print("Email was sent")
