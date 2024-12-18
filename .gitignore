@@ -2,3 +2,5 @@ venv
 .ropeproject
 .env
 images/
+__pycache__/
+*.pyc
